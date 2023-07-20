@@ -23,6 +23,7 @@ public class FileUploadController {
 //
 //    }
 
+
 //    @GetMapping("/files/{fileId}")
 //    public ResponseEntity<byte[]> getFileById(@PathVariable Long fileId) throws FileNotFoundException {
 //        FileEntity fileEntity = fileService.getFileById(fileId);
