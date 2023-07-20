@@ -3,10 +3,8 @@ package com.example.djline.service;
 import com.example.djline.model.FileEntity;
 import com.example.djline.repository.FileRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -37,18 +35,18 @@ public class FileService {
         return fileRepository.findAll();
     }
 
-    public void uploadFile(MultipartFile file) {
-        try {
-            String fileName = file.getOriginalFilename();
-            byte[] data = file.getBytes();
-
-            FileEntity fileEntity = new FileEntity();
-            fileEntity.setName(fileName);
-            fileEntity.setData(data);
-
-            fileRepository.save(fileEntity);
-        } catch (IOException e) {
-            // Handle exception appropriately
-        }
-    }
+//    public void uploadFile(MultipartFile file) {
+//        try {
+//            String fileName = file.getOriginalFilename();
+//            byte[] data = file.getBytes();
+//
+//            FileEntity fileEntity = new FileEntity();
+//            fileEntity.setName(fileName);
+//            fileEntity.setData(data);
+//
+//            fileRepository.save(fileEntity);
+//        } catch (IOException e) {
+//            // Handle exception appropriately
+//        }
+//    }
 }
