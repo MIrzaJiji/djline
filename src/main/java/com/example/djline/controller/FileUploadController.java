@@ -35,8 +35,15 @@ public class FileUploadController {
     @GetMapping("/")
     public ResponseEntity<List<ResponseDTO>> getAllTextFiles() {
         List<FileEntity> fileEntities = fileService.getAllTextFiles();
-        List<ResponseDTO> responseDTOs = fileEntities.stream().map(fileEntity -> new ResponseDTO(fileEntity.getName(), fileEntity.getData())).collect(Collectors.toList());
+        List<ResponseDTO> responseDTOs = fileEntities.stream().map(fileEntity -> new ResponseDTO(fileEntity.getId(), fileEntity.getName(), fileEntity.getData())).collect(Collectors.toList());
 
+
+        for (ResponseDTO responseDTO : responseDTOs) {
+            System.out.println("ID: " + responseDTO.getId());
+            System.out.println("Name: " + responseDTO.getName());
+            System.out.println("Data: " + responseDTO.getData());
+            System.out.println("\n");
+        }
         return new ResponseEntity<>(responseDTOs, HttpStatus.OK);
     }
 
